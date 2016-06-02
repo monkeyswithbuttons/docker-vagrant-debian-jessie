@@ -6,6 +6,10 @@ FROM debian:jessie
 MAINTAINER Greg Trahair <greg@monkeyswithbuttons.com>
 RUN apt-get update -y && apt-get dist-upgrade -y
 RUN apt-get install -y --no-install-recommends ssh sudo
+
+# Install Puppet
+RUN apt-get install -y puppet
+
 # Add vagrant user and key
 RUN useradd --create-home -s /bin/bash vagrant
 RUN echo -n 'vagrant:vagrant' | chpasswd
